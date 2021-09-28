@@ -26,6 +26,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->app['auth']->viaRequest('api', function (Request $request) {
             if (!$request->hasHeader('Authorization')) {
                 return null;

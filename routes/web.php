@@ -13,6 +13,7 @@
 |
 */
 
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
@@ -21,4 +22,4 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($ro
 
 });
 
-$router->post('/api/login', 'TokenController@generateToken');
+$router->post('/api/authenticate', 'TokenController@generateToken');

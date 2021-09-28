@@ -70,12 +70,13 @@ $app->configure('app');
 | be global middleware that run before and after each request into a
 | route or middleware that'll be assigned to some specific routes.
 |
+
+
 */
 
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
-
+$app->middleware([
+     App\Http\Middleware\Cors::class
+]);
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
 ]);
