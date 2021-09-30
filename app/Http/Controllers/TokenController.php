@@ -33,7 +33,8 @@ class TokenController extends Controller
         );
 
         return [
-            'idUsuario' => $usuario->id,
+            'id' => $usuario->id,
+            'name' => $usuario->nome,
             'access_token' => $token
         ];
     }
