@@ -1,10 +1,3 @@
-
-/**
- * @apiDefine admin:token User access only
- * This optional description belong to to the group admin.
- */
-
-
 /**
  * @api {post} /authenticate JWT Authenticate
  * @apiVersion 1.0.0
