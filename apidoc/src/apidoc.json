@@ -1,9 +1,25 @@
+
 {
-    "name": "UniAPi",
-    "version": "1.0.0",
-    "description": "UNILAB API data academic provider",
-    "apidoc": {
-        "title": "UniAPI doc",
-        "url": "https://api.unilab.edu.br"
+    "name": "UniAPI Unilab API documentation",
+    "version": "0.3.0",
+    "description": "Documentation for the REST api access provided at UNILAB",
+    "title": "UniApi Doc",
+    "url" : "https://api.unilab.edu.br",
+    "output": "../public/docs",
+    "input": [
+      "example"
+    ],
+    "header": {
+      "title": "Introduction",
+      "filename": "header.md"
+    },
+    "footer": {
+      "title": "Best practices",
+      "filename": "footer.md"
+    },
+    "template": {
+      "withCompare": true,
+      "withGenerator": true,
+      "aloneDisplay": false
     }
-}
+  }
