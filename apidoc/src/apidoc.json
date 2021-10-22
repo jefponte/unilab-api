@@ -1,7 +1,7 @@
 
 {
     "name": "UniAPI Unilab API documentation",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "description": "Documentation for the REST api access provided at UNILAB",
     "title": "UniApi Doc",
     "url" : "https://api.unilab.edu.br",
