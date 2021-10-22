@@ -15,8 +15,9 @@
 
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return redirect('/docs/index.html');
 });
+
 $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
     $router->get('user', 'UserController@index');
 

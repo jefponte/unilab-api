@@ -1,0 +1,9 @@
+{
+    "name": "UniAPi",
+    "version": "1.0.0",
+    "description": "UNILAB API data academic provider",
+    "apidoc": {
+        "title": "UniAPI doc",
+        "url": "https://api.unilab.edu.br"
+    }
+}
