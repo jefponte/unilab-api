@@ -12,7 +12,7 @@ use Laravel\Lumen\Auth\Authorizable;
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, HasFactory;
-    protected $table = 'usuario';
+    protected $table = 'vw_autenticacao_3s';
     /**
      * The attributes that are mass assignable.
      *
