@@ -28,12 +28,12 @@ class TokenController extends Controller
         }
 
         $token = JWT::encode(
-            ['id' => $usuario->id, 'email' => $usuario->email],
+            ['id' => $usuario->id_usuario, 'email' => $usuario->email],
             env('JWT_KEY')
         );
 
         return [
-            'id' => $usuario->id,
+            'id' => $usuario->id_usuario,
             'name' => $usuario->nome,
             'access_token' => $token
         ];
