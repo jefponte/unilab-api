@@ -1,5 +1,5 @@
 /**
- * @api {post} /authenticate JWT Authenticate
+ * @api {post} /api/authenticate JWT Authenticate
  * @apiVersion 1.0.0
  * @apiName Authenticate
  * @apiGroup User
