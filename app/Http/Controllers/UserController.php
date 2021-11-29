@@ -18,7 +18,7 @@ class UserController extends BaseController
      */
     public function index(Request $request)
     {
-        $user = $this->classe::query()->where('id', Auth::user()->id)->first();
+        $user = $this->classe::query()->where('id_usuario', Auth::user()->id_usuario)->first();
         return $user;
     }
 }
