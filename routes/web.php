@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
     $router->get('user', 'UserController@index');
-
+    $router->get('bond', 'UserController@bond');
 });
 
 $router->post('/api/authenticate', 'TokenController@generateToken');
