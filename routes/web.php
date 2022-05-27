@@ -24,3 +24,5 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($ro
 });
 
 $router->post('/api/authenticate', 'TokenController@generateToken');
+
+$router->post('/api/authenticate_md5', 'TokenController@generateTokenMd5');
