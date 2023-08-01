@@ -12,11 +12,22 @@ class TokenController extends Controller
     {
 
         $this->validate($request, [
-            'login' => 'required',
             'senha' => 'required'
         ]);
 
-        $usuario = User::where('login', $request->login)->first();
+
+	if($request->login == null && $request->cpf == null) {
+	    return response()->json('login or cpf is required', 401);
+	} 
+	$usuario = null;
+	if($request->login != null){
+	    $usuario = User::where('login', $request->login)->first();
+	} 
+
+	if($request->cpf != null) {
+		$cpf = intval($request->cpf);
+		$usuario = User::where('cpf_cnpj', $cpf)->first();
+	}
 
         if (is_null($usuario)){
             return response()->json('User not found', 401);
