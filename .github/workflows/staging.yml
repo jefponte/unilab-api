@@ -32,4 +32,4 @@ jobs:
       with:
         server: jefponte.com
         username: unilab-api-staging@jefponte.com
-        password: ${{ secrets.FTP_PASSWORD }}
+        password: ${{ secrets.FTP_PASSWORD_STAGING }}
