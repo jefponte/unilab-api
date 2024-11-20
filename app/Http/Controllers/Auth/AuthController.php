@@ -103,7 +103,8 @@ class AuthController extends Controller
             ]
         );
 
-        $token = $user->createToken('api-web', ['web'])->plainTextToken;
+        // dd($user->role);
+        $token = $user->createToken('api-web', [$user->role])->plainTextToken;
 
         return response()->json([
             "id" => $user->id,
