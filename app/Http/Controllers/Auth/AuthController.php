@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use OpenApi\Annotations as OA;
 
@@ -44,22 +46,63 @@ class AuthController extends Controller
     {
         $input = $request->all();
 
+        if (isset($input['senha']) && !isset($input['password'])) {
+            $input['password'] = $input['senha'];
+        }
+
         $validation = Validator::make($input, [
-            'email' => 'required|email',
             'password' => 'required',
+            'email' => 'nullable|email',
+            'login' => 'nullable|string',
+            'cpf' => 'nullable|string',
         ]);
 
         if ($validation->fails()) {
             return response()->json(['error' => $validation->errors()], 422);
         }
 
-        $credentials = $request->only('email', 'password');
-
-        if (!Auth::guard('web')->attempt($credentials)) {
-            abort(401, 'Invalid Credentials');
+        $field = null;
+        if (!empty($input['email'])) {
+            $field = 'email';
+        } elseif (!empty($input['login'])) {
+            $field = 'login';
+        } elseif (!empty($input['cpf'])) {
+            $field = 'cpf_cnpj';
         }
 
-        $user = $request->user();
+        if (!$field) {
+            return response()->json(['error' => 'You must provide either email, login, or CPF'], 422);
+        }
+
+        $userData = DB::connection('sistemas_comum')
+            ->table('vw_usuarios_autenticacao_catraca')
+            ->where($field, $input[$field])
+            ->first();
+
+        if (!$userData) {
+            return response()->json(['error' => 'Invalid credentials'], 401);
+        }
+
+        // Verificar se a senha já está em MD5
+        $providedPassword = $input['password'];
+        $hashedPassword = strlen($providedPassword) === 32 && ctype_xdigit($providedPassword)
+            ? $providedPassword // Senha já está em MD5
+            : md5($providedPassword); // Gerar o hash MD5 se não estiver
+
+        if ($hashedPassword !== $userData->senha) {
+            return response()->json(['error' => 'Invalid credentials'], 401);
+        }
+        $user = User::on('local')->updateOrCreate(
+            ['id' => $userData->id_usuario],
+            [
+                'id' => $userData->id_usuario,
+                'name' => $userData->nome,
+                'email' => $userData->email,
+                'login' => $userData->login,
+                'password' => null,
+            ]
+        );
+
         $token = $user->createToken('api-web', ['web'])->plainTextToken;
 
         return response()->json([

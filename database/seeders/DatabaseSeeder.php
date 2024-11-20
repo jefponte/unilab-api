@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +15,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+
+        // User::create([
+        //     'name' => 'Francisca CLIENT Root',
+        //     'email' => 'client@unilab.edu.br',
+        //     'password' => Hash::make('root'),
+        // ]);
+
+        //
+        $this->call(VwUsuariosCatracaSeeder::class);
+
     }
 }
