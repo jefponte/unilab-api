@@ -64,6 +64,8 @@ With the environment up, run the migrations:
 
     docker exec -it unilab-api bash -c "php artisan migrate"
 
+    docker exec -it unilab-api bash -c "php artisan db:seed"
+
 ### Step 5: Generate Application Key
 
 To secure the application, generate a new app key:

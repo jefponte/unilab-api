@@ -51,7 +51,7 @@ services:
     image: postgres:13
     container_name: postgres
     ports:
-      - "5432:5435"
+      - "5435:5432"
     environment:
       POSTGRES_DB: unilab_unilab-api
       POSTGRES_USER: unilab_unilab-api
