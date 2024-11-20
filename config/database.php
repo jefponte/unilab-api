@@ -30,7 +30,47 @@ return [
     */
 
     'connections' => [
+        'local' => [
+            'driver' => env('DB_LOCAL_DRIVER', 'mysql'),
+            'host' => env('DB_LOCAL_HOST', '127.0.0.1'),
+            'port' => env('DB_LOCAL_PORT', '3306'),
+            'database' => env('DB_LOCAL_DATABASE', 'local_database'),
+            'username' => env('DB_LOCAL_USERNAME', 'root'),
+            'password' => env('DB_LOCAL_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
 
+        'sigaa' => [
+            'driver' => env('DB_SIGAA_DRIVER', 'mysql'),
+            'host' => env('DB_SIGAA_HOST', '127.0.0.1'),
+            'port' => env('DB_SIGAA_PORT', '3306'),
+            'database' => env('DB_SIGAA_DATABASE', 'sigaa_database'),
+            'username' => env('DB_SIGAA_USERNAME', 'sigaa_user'),
+            'password' => env('DB_SIGAA_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'sistemas_comum' => [
+            'driver' => env('DB_SISTEMAS_COMUM_DRIVER', 'mysql'),
+            'host' => env('DB_SISTEMAS_COMUM_HOST', '127.0.0.1'),
+            'port' => env('DB_SISTEMAS_COMUM_PORT', '3306'),
+            'database' => env('DB_SISTEMAS_COMUM_DATABASE', 'sistemas_comum_database'),
+            'username' => env('DB_SISTEMAS_COMUM_USERNAME', 'sistemas_user'),
+            'password' => env('DB_SISTEMAS_COMUM_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
@@ -147,7 +187,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
