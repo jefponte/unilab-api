@@ -157,21 +157,34 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         $user = $request->user();
-
+        $userData = DB::connection('sistemas_comum')
+            ->table('vw_usuarios_autenticacao_catraca')
+            ->where('id_usuario', $user->id)
+            ->first();
         return response()->json(
-            ['me' => $user]
+            $userData
         );
     }
 
     public function bond(Request $request)
     {
         $user = $request->user();
-
+        $userData = DB::connection('sigaa')
+            ->table('vw_usuarios_catraca')
+            ->where('id_usuario', $user->id)
+            ->get();
+        if (config('app.env') !== 'production') {
+            $userData = $userData->map(function ($item) {
+                $item->cpf_cnpj = substr($item->cpf_cnpj, 0, 3) . '*****' . substr($item->cpf_cnpj, -2);
+                $item->email = '*****' . strstr($item->email, '@');
+                $item->telefone_celular = '*****' . substr($item->telefone_celular, -4);
+                $item->siape = '*****';
+                $item->passaporte = $item->passaporte ? substr($item->passaporte, 0, 2) . '*****' . substr($item->passaporte, -2) : null;
+                return $item;
+            });
+        }
         return response()->json(
-            ['me' => $user]
+            $userData
         );
     }
-
-
-
 }
