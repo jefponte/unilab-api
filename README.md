@@ -56,25 +56,25 @@ This command will build the Docker image if needed and start the containers in t
 
 Run the following command to install dependencies using Composer:
 
-    docker exec -it dsfbasekit-api bash -c "composer install"
+    docker exec -it unilab-api bash -c "composer install"
 
 ### Step 4: Run Database Migrations
 
 With the environment up, run the migrations:
 
-    docker exec -it dsfbasekit-api bash -c "php artisan migrate"
+    docker exec -it unilab-api bash -c "php artisan migrate"
 
 ### Step 5: Generate Application Key
 
 To secure the application, generate a new app key:
 
-    docker exec -it dsfbasekit-api bash -c "php artisan key:generate"
+    docker exec -it unilab-api bash -c "php artisan key:generate"
 
 ### Step 6: (Optional) Create Storage Link
 
 If needed, create a symbolic link for the storage directory:
 
-    docker exec -it dsfbasekit-api bash -c "php artisan storage:link"
+    docker exec -it unilab-api bash -c "php artisan storage:link"
 
 ### Step 7: Access the Application
 
@@ -92,7 +92,7 @@ The API will be available at [http://localhost](http://localhost).
 
 - **Access the container**:
 
-      docker exec -it dsfbasekit-api bash
+      docker exec -it unilab-api bash
 
 ## Notes
 
