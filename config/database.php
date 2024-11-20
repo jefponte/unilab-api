@@ -37,25 +37,25 @@ return [
             'database' => env('DB_LOCAL_DATABASE', 'forge'),
             'username' => env('DB_LOCAL_USERNAME', 'forge'),
             'password' => env('DB_LOCAL_PASSWORD', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'charset' => env('DB_LOCAL_CHARSET', 'utf8mb4'), // Compatível com MySQL e PostgreSQL
+            'collation' => env('DB_LOCAL_COLLATION', 'utf8mb4_unicode_ci'), // Específico para MySQL
             'prefix' => '',
-            'strict' => true,
-            'engine' => null,
+            'schema' => env('DB_LOCAL_SCHEMA', 'public'), // Específico para PostgreSQL
+            'sslmode' => env('DB_LOCAL_SSLMODE', 'prefer'), // Específico para PostgreSQL
         ],
 
         'sigaa' => [
             'driver' => env('DB_SIGAA_DRIVER', 'mysql'),
             'host' => env('DB_SIGAA_HOST', '127.0.0.1'),
             'port' => env('DB_SIGAA_PORT', '3306'),
-            'database' => env('DB_SIGAA_DATABASE', 'sigaa_database'),
-            'username' => env('DB_SIGAA_USERNAME', 'sigaa_user'),
+            'database' => env('DB_SIGAA_DATABASE', 'forge'),
+            'username' => env('DB_SIGAA_USERNAME', 'forge'),
             'password' => env('DB_SIGAA_PASSWORD', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'charset' => env('DB_SIGAA_CHARSET', 'utf8mb4'), // Compatível com MySQL e PostgreSQL
+            'collation' => env('DB_SIGAA_COLLATION', 'utf8mb4_unicode_ci'), // Específico para MySQL
             'prefix' => '',
-            'strict' => true,
-            'engine' => null,
+            'schema' => env('DB_SIGAA_SCHEMA', 'public'), // Específico para PostgreSQL
+            'sslmode' => env('DB_SIGAA_SSLMODE', 'prefer'), // Específico para PostgreSQL
         ],
 
         'sistemas_comum' => [
@@ -65,11 +65,11 @@ return [
             'database' => env('DB_SISTEMAS_COMUM_DATABASE', 'forge'),
             'username' => env('DB_SISTEMAS_COMUM_USERNAME', 'forge'),
             'password' => env('DB_SISTEMAS_COMUM_PASSWORD', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'charset' => env('DB_SISTEMAS_COMUM_CHARSET', 'utf8mb4'), // Compatível com MySQL e PostgreSQL
+            'collation' => env('DB_SISTEMAS_COMUM_COLLATION', 'utf8mb4_unicode_ci'), // Específico para MySQL
             'prefix' => '',
-            'strict' => true,
-            'engine' => null,
+            'schema' => env('DB_SISTEMAS_COMUM_SCHEMA', 'public'), // Específico para PostgreSQL
+            'sslmode' => env('DB_SISTEMAS_COMUM_SSLMODE', 'prefer'), // Específico para PostgreSQL
         ],
         'sqlite' => [
             'driver' => 'sqlite',

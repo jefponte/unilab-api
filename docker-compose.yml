@@ -31,6 +31,9 @@ services:
       - DB_LOCAL_DATABASE=unilab_unilab-api
       - DB_LOCAL_USERNAME=unilab_unilab-api
       - DB_LOCAL_PASSWORD=secret
+      - DB_LOCAL_CHARSET=utf8
+      - DB_LOCAL_SCHEMA=public
+      - DB_LOCAL_SSLMODE=prefer
 
       - DB_SIGAA_DRIVER=pgsql
       - DB_SIGAA_HOST=db
@@ -38,6 +41,9 @@ services:
       - DB_SIGAA_DATABASE=unilab_unilab-api
       - DB_SIGAA_USERNAME=unilab_unilab-api
       - DB_SIGAA_PASSWORD=secret
+      - DB_SIGAA_CHARSET=utf8
+      - DB_SIGAA_SCHEMA=public
+      - DB_SIGAA_SSLMODE=prefer
 
       - DB_SISTEMAS_COMUM_DRIVER=pgsql
       - DB_SISTEMAS_COMUM_HOST=db
@@ -45,8 +51,9 @@ services:
       - DB_SISTEMAS_COMUM_DATABASE=unilab_unilab-api
       - DB_SISTEMAS_COMUM_USERNAME=unilab_unilab-api
       - DB_SISTEMAS_COMUM_PASSWORD=secret
-
-
+      - DB_SISTEMAS_COMUM_CHARSET=utf8
+      - DB_SISTEMAS_COMUM_SCHEMA=public
+      - DB_SISTEMAS_COMUM_SSLMODE=prefer
   db:
     image: postgres:13
     container_name: postgres

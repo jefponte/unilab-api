@@ -13,6 +13,7 @@ $router->post('authenticate',  [AuthController::class, 'auth']);
 $router->post('authenticate_md5',  [AuthController::class, 'auth']);
 
 Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum');
+Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 Route::get('/bond', [AuthController::class, 'bond'])->middleware('auth:sanctum');
 
 
