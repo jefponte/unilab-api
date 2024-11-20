@@ -13,8 +13,21 @@ return new class extends Migration
     {
         Schema::create('vw_usuarios_autenticacao_catraca', function (Blueprint $table) {
             $table->integer('id_usuario')->primary();
+            $table->string('nome')->nullable();
+            $table->string('cpf_cnpj')->nullable();
+            $table->string('passaporte')->nullable();
+            $table->string('email')->unique();
             $table->string('login')->unique();
             $table->string('senha');
+            $table->integer('id_servidor')->nullable();
+            $table->string('siape')->nullable();
+            $table->integer('id_status_servidor')->nullable();
+            $table->string('status_servidor')->nullable();
+            $table->integer('id_tipo_usuario')->nullable();
+            $table->string('tipo_usuario')->nullable();
+            $table->integer('id_categoria')->nullable();
+            $table->string('categoria')->nullable();
+
         });
     }
 
