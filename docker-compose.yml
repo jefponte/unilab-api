@@ -25,11 +25,33 @@ services:
       - DB_USERNAME=unilab_unilab-api
       - DB_PASSWORD=secret
 
+      - DB_LOCAL_DRIVER=pgsql
+      - DB_LOCAL_HOST=db
+      - DB_LOCAL_PORT=5432
+      - DB_LOCAL_DATABASE=unilab_unilab-api
+      - DB_LOCAL_USERNAME=unilab_unilab-api
+      - DB_LOCAL_PASSWORD=secret
+
+      - DB_SIGAA_DRIVER=pgsql
+      - DB_SIGAA_HOST=db
+      - DB_SIGAA_PORT=5432
+      - DB_SIGAA_DATABASE=unilab_unilab-api
+      - DB_SIGAA_USERNAME=unilab_unilab-api
+      - DB_SIGAA_PASSWORD=secret
+
+      - DB_SISTEMAS_COMUM_DRIVER=pgsql
+      - DB_SISTEMAS_COMUM_HOST=db
+      - DB_SISTEMAS_COMUM_PORT=5432
+      - DB_SISTEMAS_COMUM_DATABASE=unilab_unilab-api
+      - DB_SISTEMAS_COMUM_USERNAME=unilab_unilab-api
+      - DB_SISTEMAS_COMUM_PASSWORD=secret
+
+
   db:
     image: postgres:13
     container_name: postgres
     ports:
-      - "5432:5432"
+      - "5432:5435"
     environment:
       POSTGRES_DB: unilab_unilab-api
       POSTGRES_USER: unilab_unilab-api
