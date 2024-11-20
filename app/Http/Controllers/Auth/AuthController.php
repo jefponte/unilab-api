@@ -106,8 +106,9 @@ class AuthController extends Controller
         $token = $user->createToken('api-web', ['web'])->plainTextToken;
 
         return response()->json([
-            'token' => $token,
-            'user' => $user,
+            "id" => $user->id,
+            "name" => $user->name,
+            "access_token" => $token
         ]);
     }
 
@@ -150,4 +151,27 @@ class AuthController extends Controller
             ['me' => $user]
         );
     }
+
+
+
+    public function user(Request $request)
+    {
+        $user = $request->user();
+
+        return response()->json(
+            ['me' => $user]
+        );
+    }
+
+    public function bond(Request $request)
+    {
+        $user = $request->user();
+
+        return response()->json(
+            ['me' => $user]
+        );
+    }
+
+
+
 }
