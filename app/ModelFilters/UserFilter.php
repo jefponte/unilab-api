@@ -16,7 +16,7 @@ class UserFilter extends DefaultModelFilter
     }
     public function login($login)
     {
-        $this->where('login', 'ILIKE', "$login");
+        $this->where('login', 'ILIKE', "%$login%");
     }
 
     public function id($id)
