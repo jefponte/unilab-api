@@ -48,7 +48,7 @@ This step sets up the environment variables required for the application to conn
 
 Use Docker Compose to build and start the containers in detached mode.
 
-    docker-compose up -d --build
+    docker compose up -d --build
 
 This command will build the Docker image if needed and start the containers in the background.
 
