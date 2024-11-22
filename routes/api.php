@@ -23,3 +23,8 @@ Route::middleware(['auth:sanctum', 'abilities:admin'])->prefix('admin')->group(f
     Route::get('/users', [UserController::class, 'index']);
 });
 
+Route::middleware(['client'])->prefix('system')->group(function () {
+    Route::get('/units', [AdminController::class, 'listUnits']);
+    Route::get('/logins', [AdminController::class, 'listLogins']);
+    Route::get('/users', [UserController::class, 'index']);
+});
