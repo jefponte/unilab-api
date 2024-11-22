@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,9 +19,6 @@ Route::get('/bond', [AuthController::class, 'bond'])->middleware('auth:sanctum')
 
 
 Route::middleware(['auth:sanctum', 'abilities:admin'])->prefix('admin')->group(function () {
-    Route::get('/hability1', function () {
-        return response()->json([
-            'hability' => 'super_user'
-        ]);
-    });
+    Route::get('/units', [AdminController::class, 'listUnits']);
+    Route::get('/logins', [AdminController::class, 'listLogins']);
 });

@@ -36,6 +36,7 @@ class UserController extends BasicCrudController
         return parent::index($request);
     }
 
+
     /**
      * @OA\Post(
      *     path="/api/users",

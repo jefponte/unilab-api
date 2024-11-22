@@ -103,7 +103,8 @@ class AuthController extends Controller
             ]
         );
 
-        // dd($user->role);
+        $abilities = is_string($user->role) ? [$user->role] : ['client'];
+        $token = $user->createToken('api-web', $abilities)->plainTextToken;
         $token = $user->createToken('api-web', [$user->role])->plainTextToken;
 
         return response()->json([
