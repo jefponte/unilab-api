@@ -27,9 +27,9 @@ class UserFilter extends DefaultModelFilter
     public function login($login)
     {
         if (env('DB_CONNECTION') === 'pgsql') {
-            $this->where('login', 'ILIKE', "%$login%");
+            $this->where('login', '=', $login);
         } else {
-            $this->whereRaw("LOWER(login) LIKE ?", ['%' . strtolower($login) . '%']);
+            $this->where('login', '=', $login);
         }
     }
 
