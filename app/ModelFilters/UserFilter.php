@@ -6,24 +6,17 @@ class UserFilter extends DefaultModelFilter
 {
     protected $sortable = ['created_at'];
 
-    public function subject($subject)
+    public function name($name)
     {
-        $this->where('subject', 'ILIKE', "%$subject%");
+        $this->where('name', 'ILIKE', "%$name%");
     }
-
-    public function status($status)
-    {
-        $this->where('status', $status);
-    }
-
-    public function queueName($queueName)
-    {
-        $this->where('queue_name', $queueName);
-    }
-
     public function email($email)
     {
         $this->where('email', 'ILIKE', "%$email%");
+    }
+    public function login($login)
+    {
+        $this->where('login', 'ILIKE', "$login");
     }
 
     public function id($id)
