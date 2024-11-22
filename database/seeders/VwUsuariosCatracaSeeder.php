@@ -17,7 +17,7 @@ class VwUsuariosCatracaSeeder extends Seeder
             [
                 'id_usuario' => 3375,
                 'nome' => 'Servidor de Teste 1',
-                'cpf_cnpj' => '03519017369',
+                'cpf_cnpj' => '12312312336',
                 'email' => 'servidor1@unilab.edu.br',
                 'login' => 'servidor1',
                 'id_servidor' => 427,
@@ -93,8 +93,8 @@ class VwUsuariosCatracaSeeder extends Seeder
         DB::table('vw_usuarios_autenticacao_catraca')->insert([
             [
                 'id_usuario' => 3375,
-                'nome' => 'JEFFERSON UCHOA PONTE',
-                'cpf_cnpj' => '3519017369',
+                'nome' => 'Servidor de Teste 1',
+                'cpf_cnpj' => '12312312336',
                 'passaporte' => null,
                 'email' => 'servidor1@unilab.edu.br',
                 'login' => 'servidor1',
