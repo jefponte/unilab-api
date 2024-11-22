@@ -72,6 +72,12 @@ To secure the application, generate a new app key:
 
     docker exec -it unilab-api bash -c "php artisan key:generate"
 
+    docker exec -it unilab-api bash -c "php artisan passport:keys"
+
+    docker exec -it unilab-api bash -c "php artisan passport:client --client"
+
+
+
 ### Step 6: (Optional) Create Storage Link
 
 If needed, create a symbolic link for the storage directory:
