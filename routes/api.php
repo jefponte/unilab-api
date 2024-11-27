@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BondController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\AuthController;
@@ -27,4 +28,5 @@ Route::middleware(['client'])->prefix('system')->group(function () {
     Route::get('/units', [AdminController::class, 'listUnits']);
     Route::get('/logins', [AdminController::class, 'listLogins']);
     Route::get('/users', [UserController::class, 'index']);
+    Route::get('/bonds', [BondController::class, 'index']);
 });
