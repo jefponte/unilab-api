@@ -18,7 +18,9 @@ class Bond extends Model
     public $timestamps = false;
 
     protected $primaryKey = null;
-
+    protected $hidden = [
+        'senha'
+    ];
     protected $fillable = [
         'id_usuario',
         'nome',
