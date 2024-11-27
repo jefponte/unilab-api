@@ -15,9 +15,9 @@ class BondFilter extends DefaultModelFilter
     public function name($name)
     {
         if (env('DB_CONNECTION') === 'pgsql') {
-            $this->where('name', 'ILIKE', "%$name%");
+            $this->where('nome', 'ILIKE', "%$name%");
         } else {
-            $this->whereRaw("LOWER(name) LIKE ?", ['%' . strtolower($name) . '%']);
+            $this->whereRaw("LOWER(nome) LIKE ?", ['%' . strtolower($name) . '%']);
         }
     }
 
