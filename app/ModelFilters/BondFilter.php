@@ -29,7 +29,14 @@ class BondFilter extends DefaultModelFilter
             $this->whereRaw("LOWER(email) LIKE ?", ['%' . strtolower($email) . '%']);
         }
     }
-
+    public function login($login)
+    {
+        if (env('DB_CONNECTION') === 'pgsql') {
+            $this->where('login', 'ILIKE', "%$login%");
+        } else {
+            $this->whereRaw("LOWER(login) LIKE ?", ['%' . strtolower($login) . '%']);
+        }
+    }
     public function id($id)
     {
         $this->where('id_usuario', $id); // Ajuste para usar a chave correta
