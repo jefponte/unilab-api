@@ -68,17 +68,17 @@ services:
     networks:
       - laravel-network
 
-  # pgadmin:
-  #   image: dpage/pgadmin4
-  #   container_name: pgadmin
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: admin@admin.com
-  #     PGADMIN_DEFAULT_PASSWORD: admin
-  #     PGADMIN_CONFIG_SERVER_MODE: 'False'
-  #   ports:
-  #     - "8081:80"
-  #   networks:
-  #     - laravel-network
+  pgadmin2:
+    image: dpage/pgadmin4
+    container_name: pgadmin2
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8089:80"
+    networks:
+      - laravel-network
 
 networks:
   laravel-network:
