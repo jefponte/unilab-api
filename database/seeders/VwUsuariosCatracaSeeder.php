@@ -15,7 +15,7 @@ class VwUsuariosCatracaSeeder extends Seeder
     {
         DB::table('vw_usuarios_catraca')->insert([
             [
-                'id_usuario' => 3375,
+                'id_usuario' => 7072406,
                 'nome' => 'Servidor de Teste 1',
                 'cpf_cnpj' => '12312312336',
                 'email' => 'servidor1@unilab.edu.br',
@@ -52,7 +52,7 @@ class VwUsuariosCatracaSeeder extends Seeder
                 'senha' => null,
             ],
             [
-                'id_usuario' => 17116,
+                'id_usuario' => 1358284,
                 'nome' => 'ALUNO TESTE 1',
                 'cpf_cnpj' => '123456789',
                 'passaporte' => '123456789',
@@ -92,7 +92,7 @@ class VwUsuariosCatracaSeeder extends Seeder
 
         DB::table('vw_usuarios_autenticacao_catraca')->insert([
             [
-                'id_usuario' => 3375,
+                'id_usuario' => 7072406,
                 'nome' => 'Servidor de Teste 1',
                 'cpf_cnpj' => '12312312336',
                 'passaporte' => null,
@@ -109,7 +109,7 @@ class VwUsuariosCatracaSeeder extends Seeder
                 'categoria' => 'Técnico Administrativo',
             ],
             [
-                'id_usuario' => 17116,
+                'id_usuario' => 1358284,
                 'nome' => 'ALUNO TESTE 1',
                 'cpf_cnpj' => '123456789',
                 'passaporte' => '123456789',
